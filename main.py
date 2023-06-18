@@ -50,4 +50,4 @@ def hex_to_rgb(hex_color: str) -> tuple:
     return rgb
 
 
-parse_colors()
+print(hex_to_rgb('#203730'))
