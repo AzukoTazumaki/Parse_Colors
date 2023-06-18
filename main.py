@@ -26,23 +26,22 @@ def parse_colors():
         else:
             text_color = text_color.lower()
         rgb_numbers = ', '.join(str(x) for x in hex_to_rgb(title_color))
-        rgb_deep_numbers = ', '.join(str(x - 20) if x >= 20 else '0' for x in hex_to_rgb(title_color))
-        hex_color += f'--{text_color.lower()}: {title_color}; \n'
-        rgb += f'--{text_color.lower()}: rgb({rgb_numbers}); \n'
-        rgb_deep += f'--{text_color.lower()}: rgb({rgb_deep_numbers}); \n'
-        rgba += f'--{text_color.lower()}: rgba({rgb_numbers}, .7); \n'
-        shadow_rgb += f'--{text_color.lower()}-shadow: 1px 1px 2px rgb({title_color}); \n'
+        # rgb_deep_numbers = ', '.join(str(x - 20) if x >= 20 else '0' for x in hex_to_rgb(title_color))
+        # hex_color += f'--{text_color.lower()}-hex: {title_color}; \n'
+        # rgb += f'--{text_color.lower()}-rgb: rgb({rgb_numbers}); \n'
+        # rgb_deep += f'--{text_color.lower()}-rgb-deep: rgb({rgb_deep_numbers}); \n'
+        # rgba += f'--{text_color.lower()}-rgba: rgba({rgb_numbers}, .7); \n'
+        shadow_rgb += f'--{text_color.lower()}-shadow: 1px 1px 2px rgb({rgb_numbers}); \n'
         with open('hex.csv', 'a') as hex_csv, \
              open('rgb.csv', 'a') as rgb_csv, \
              open('rgb_deep.csv', 'a') as rgb_deep_csv, \
              open('rgba.csv', 'a') as rgba_csv, \
              open('shadows_rgb.csv', 'a') as shadows_rgb_csv:
-            hex_csv.writelines(hex_color)
-            rgb_csv.writelines(rgb)
-            rgb_deep_csv.writelines(rgb_deep)
-            rgba_csv.writelines(rgba)
+            # hex_csv.writelines(hex_color)
+            # rgb_csv.writelines(rgb)
+            # rgb_deep_csv.writelines(rgb_deep)
+            # rgba_csv.writelines(rgba)
             shadows_rgb_csv.writelines(shadow_rgb)
-
 
 
 def hex_to_rgb(hex_color: str) -> tuple:
